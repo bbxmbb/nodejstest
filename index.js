@@ -65,7 +65,7 @@ const keepServerAlive = () => {
 
     req.end();
 };
-cron.schedule('* * * * *', () => {
-    console.log('This will run every 1 minutes');
+cron.schedule('*/14 * * * *', () => {
+    console.log('This will run every 14 minutes');
     keepServerAlive();
 });
