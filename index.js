@@ -3,17 +3,19 @@ const app = express();
 const port = 3000;
 const mysql = require('mysql');
 const ejs = require('ejs');
+require('dotenv').config();
 
 // app.get("/", (req, res) => {
 //     res.send("Hello World!");
 // });
+const databaseConfig = {
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME
+};
+const connection = mysql.createConnection(databaseConfig);
 
-const connection = mysql.createConnection({
-    host: 'srv595.hstgr.io',
-    user: 'u232952187_nodejstest',
-    password: 'VA60PT$GktGD',
-    database: 'u232952187_nodejstest'
-});
 connection.connect((err) => {
     if (err) {
         console.error('Error connecting to database:', err);
