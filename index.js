@@ -3,6 +3,8 @@ const app = express();
 const port = 3000;
 // const mysql = require('mysql');
 const mysql = require('mysql2/promise'); // Import mysql2
+const cron = require('node-cron');
+
 
 const ejs = require('ejs');
 require('dotenv').config();
@@ -18,6 +20,9 @@ const pool = mysql.createPool({
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
+});
+cron.schedule('*/14 * * * *', () => {
+    console.log('This will run every 14 minutes');
 });
 app.get('/', async (req, res) => {
     try {
