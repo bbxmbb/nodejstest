@@ -47,25 +47,25 @@ app.listen(port, () => {
 
 
 // Define a function to send a request to keep the server alive
-const keepServerAlive = () => {
-    const options = {
-        hostname: 'localhost', // Replace with your server URL
-        port: 3000, // Use the appropriate port
-        path: '/refresh', // The path you want to keep alive
-        method: 'GET'
-    };
+// const keepServerAlive = () => {
+//     const options = {
+//         hostname: 'localhost', // Replace with your server URL
+//         port: 3000, // Use the appropriate port
+//         path: '/refresh', // The path you want to keep alive
+//         method: 'GET'
+//     };
 
-    const req = http.request(options, (res) => {
-        console.log(`Response from server: ${res.statusCode}`);
-    });
+//     const req = http.request(options, (res) => {
+//         console.log(`Response from server: ${res.statusCode}`);
+//     });
 
-    req.on('error', (e) => {
-        console.error(`Problem with request: ${e.message}`);
-    });
+//     req.on('error', (e) => {
+//         console.error(`Problem with request: ${e.message}`);
+//     });
 
-    req.end();
-};
-cron.schedule('*/14 * * * *', () => {
-    console.log('This will run every 14 minutes');
-    keepServerAlive();
-});
+//     req.end();
+// };
+// cron.schedule('*/14 * * * *', () => {
+//     console.log('This will run every 14 minutes');
+//     keepServerAlive();
+// });
