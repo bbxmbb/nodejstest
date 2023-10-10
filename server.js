@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 8080;
 // const mysql = require('mysql');
 const mysql = require('mysql2/promise'); // Import mysql2
 const cron = require('node-cron');
@@ -50,7 +50,7 @@ app.listen(port, () => {
 const keepServerAlive = () => {
     const options = {
         hostname: 'localhost', // Replace with your server URL
-        port: 3000, // Use the appropriate port
+        port: 8080, // Use the appropriate port
         path: '/refresh', // The path you want to keep alive
         method: 'GET'
     };
