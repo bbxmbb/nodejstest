@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
     try {
         const [rows, fields] = await pool.execute('SELECT * FROM items'); // Use pool.execute() for queries
         // res.json(rows);
-        console.log("somebody access this page 26")
+        console.log("somebody access this page 2")
         res.render('index', {
             data: rows
         });
